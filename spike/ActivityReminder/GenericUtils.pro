@@ -35,7 +35,7 @@ HEADERS += \
 win32 {
     TARGET_CUSTOM_EXT = .dll
 }
-unit {
+unix {
     TARGET_CUSTOM_EXT = .so
 }
 
