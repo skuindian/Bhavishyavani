@@ -1,0 +1,9 @@
+bin
+
+
+#QT Specific setting
+*.pro.user
+
+#Spike - Test Projects related setting
+spike/ActivityReminder/bin
+spike/ActivityReminder/build

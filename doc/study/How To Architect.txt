@@ -1,0 +1,8 @@
+Analysis - Understanding domain.
+Case Study
+Top Down Design or Bottom Up Design
+
+
+Understand various architectural pattern:
+https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013
+https://dzone.com/articles/software-architecture-the-5-patterns-you-need-to-k
