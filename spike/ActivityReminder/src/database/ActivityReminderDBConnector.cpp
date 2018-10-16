@@ -7,6 +7,9 @@
 //QT Interface
 #include <QDataStream>
 
+//Helper class
+#include "ActivityReminderConfigReader.h"
+
 ActivityReminderDBConnector::ActivityReminderDBConnector(QObject *parent):
     QObject(parent),
     mTcpSocket(nullptr)
@@ -28,7 +31,8 @@ int ActivityReminderDBConnector::init()
     connect(mTcpSocket, SIGNAL(readyRead()), this, SLOT(readData()));
 
     //To update the status of the server connection
-    connectToServer("127.0.0.1", 8001);
+    connectToServer(helper::ActivityReminderConfigReader::getInstence()->getServerIP().c_str(),
+                    helper::ActivityReminderConfigReader::getInstence()->getServerDBPort());
 
     if(!mTcpSocket->waitForConnected())
     {

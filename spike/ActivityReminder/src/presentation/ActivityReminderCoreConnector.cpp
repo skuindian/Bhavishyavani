@@ -9,6 +9,9 @@
 #include <QDataStream>
 #include <QDebug>
 
+//Helper class
+#include "ActivityReminderConfigReader.h"
+
 ActivityReminderCoreConnector::ActivityReminderCoreConnector(QObject *parent):
     QObject(parent),
     mTcpSocket(nullptr)
@@ -31,7 +34,8 @@ int ActivityReminderCoreConnector::init()
 
     //To update the status of the server connection
     emit requestMessage("Connecting to server");
-    connectToServer("127.0.0.1", 8000);
+    connectToServer(helper::ActivityReminderConfigReader::getInstence()->getServerIP().c_str(),
+                    helper::ActivityReminderConfigReader::getInstence()->getServerUIPort());
 
     if(!mTcpSocket->waitForConnected())
     {

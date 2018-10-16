@@ -6,6 +6,8 @@
 
 #include "GenericLogger.h"
 
+#include "ActivityReminderConfigReader.h"
+
 ActivityReminderDBConnector::ActivityReminderDBConnector(QObject *parent):
     QObject(parent),
     mServer(nullptr),
@@ -39,7 +41,9 @@ int ActivityReminderDBConnector::listenIncomingRequest()
 {
     utility::GenericLogger::getLogger()->logDebug("ActivityReminderDBConnector::listenIncomingRequest");
 
-    if(!mServer->listen(QHostAddress::LocalHost, 8001))
+    if(!mServer->listen(
+                QHostAddress(helper::ActivityReminderConfigReader::getInstence()->getServerIP().c_str()),
+                helper::ActivityReminderConfigReader::getInstence()->getServerDBPort()))
     {
         return gActivityReminderConst::SERVER_NOT_STARTED;
     }

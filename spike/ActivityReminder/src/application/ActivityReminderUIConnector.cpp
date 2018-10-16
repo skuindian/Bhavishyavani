@@ -6,6 +6,8 @@
 
 #include "GenericLogger.h"
 
+#include "ActivityReminderConfigReader.h"
+
 ActivityReminderUIConnector::ActivityReminderUIConnector(QObject *parent):
     QObject(parent)
 {
@@ -36,7 +38,9 @@ int ActivityReminderUIConnector::listenIncomingRequest()
 {
     utility::GenericLogger::getLogger()->logDebug("ActivityReminderUIConnector::listenIncomingRequest");
 
-    if(!mServer->listen(QHostAddress::LocalHost, 8000))
+    if(!mServer->listen(
+                QHostAddress(helper::ActivityReminderConfigReader::getInstence()->getServerIP().c_str()),
+                helper::ActivityReminderConfigReader::getInstence()->getServerUIPort()))
     {
         return gActivityReminderConst::SERVER_NOT_STARTED;
     }

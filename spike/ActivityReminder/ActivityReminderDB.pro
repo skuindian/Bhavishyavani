@@ -30,9 +30,11 @@ HEADERS += \
 
 INCLUDEPATH += \
             include \
-            src/utility/
+            src/utility \
+            src/helper
 
 LIBS += $${OUT_PWD}/../../bin/GenericUtils.dll
+LIBS += $${OUT_PWD}/../../bin/ActivityReminderHelper.dll
 
 win32 {
     TARGET_CUSTOM_EXT = .exe

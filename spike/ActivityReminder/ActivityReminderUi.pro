@@ -42,15 +42,14 @@ FORMS += \
 
 INCLUDEPATH += \
             include \
-            src/utility/
-
-DEPENDPATH += \
-            src/presentation
+            src/utility \
+            src/helper
 
 RESOURCES += \
     images/images.qrc
 
 LIBS += $${OUT_PWD}/../../bin/GenericUtils.dll
+LIBS += $${OUT_PWD}/../../bin/ActivityReminderHelper.dll
 
 win32 {
     TARGET_CUSTOM_EXT = .exe
