@@ -1,6 +1,8 @@
 #ifndef ACTIVITYREMINDERCONFIGREADER_H
 #define ACTIVITYREMINDERCONFIGREADER_H
 
+#include <QSettings>
+
 #include <string>
 
 namespace helper {
@@ -9,6 +11,7 @@ class ActivityReminderConfigReader
 private:
     ActivityReminderConfigReader();
     static ActivityReminderConfigReader *mActivityReminderConfigReader;
+    QSettings mConfigSetting;
 
 public:
     static ActivityReminderConfigReader *getInstence();

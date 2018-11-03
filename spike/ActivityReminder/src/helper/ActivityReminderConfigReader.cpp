@@ -5,6 +5,7 @@ ActivityReminderConfigReader *ActivityReminderConfigReader::mActivityReminderCon
 
 ActivityReminderConfigReader::ActivityReminderConfigReader()
 {
+
 }
 
 ActivityReminderConfigReader *ActivityReminderConfigReader::getInstence()

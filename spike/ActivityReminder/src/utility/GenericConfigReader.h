@@ -23,7 +23,7 @@ private:
 public:
     static GenericConfigReader *getInstence();
 
-    std::list<ConfigContent> readConfig(std::string fileName);
+    std::list<ConfigContent> loadConfig(std::string fileName);
 };
 
 }
